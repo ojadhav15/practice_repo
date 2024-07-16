@@ -1,0 +1,80 @@
+
+--Constraints
+--Constraints are used to maintain the accuracy and integrity of the data.
+--1.Primary Key
+--2.Foreign Key
+--3.NOT NULL key
+--4.Unique Key
+--5.Check Key
+--6.Default key
+
+--1.Primary Key --PK
+--NOT NULL + UNIQUE
+--It will always identifies unique record into column of the table.
+--PK is used in general with numeric values .
+--Auto Increment
+--It will automatically insert or increment the unique values into table once you define the auto increment.
+
+--It will allow you to specify the range of values by which you want to create a unique values.
+--Syntax : Column_name IDENTITY(start,diff)
+--2.Foreign Key (FK)
+--A FK is column or collection of columns in one table that refers to the primary key in another table.
+--NULL value can be allowed in foreign key column.
+
+---3.NOT NULL
+--NOT NULL constraint restrict you to insert NULL values into a column.
+--If you define NOT NULL constraint on column then you cant insert the NULL values in it.
+--It will allow duplicates.
+
+--4.Unique
+--It ensures that all the values in a column should be unique or diffrent value.
+--It will accept one NULL value into the column.
+
+--5.Check key
+--It ensures that all values in a column statisfies a specific condition.
+--Check constarints is used to restrict the value of a column.
+--It is just like condition checking before inserting the data into column.
+
+--6.Default constarint
+--Set a default value to column when value is not defined/inserted/specified.
+
+
+
+create table BankAccount1(Account int primary key identity(11128870,1), --11128871,11128872,11128873
+AccName varchar(20),
+Branch varchar(20),
+City varchar(20))
+
+
+insert into BankAccount values ('Shon','KR PURAM','Banglore')
+insert into BankAccount values ('Rohan','SP Road','Pune')
+insert into BankAccount values ('Amit','Katraj','Pune')
+insert into BankAccount values ('Mansi','Miyapur','HYD')
+insert into BankAccount values ('Sagar','Shivaji Nagar','Sangli')
+
+select * from BankAccount
+
+create table department(DID int primary key identity, Dept varchar(20))
+
+insert into department values('CIVIL')
+insert into department values('Mech')
+insert into department values('IT')
+insert into department values('ECE')
+
+select * from department
+
+create table student (S_ID int primary key identity,S_NAME varchar(20),
+DID int foreign key references department(DID) )
+
+insert into student values ('Praveen',2)
+insert into student values ('amit',2)
+insert into student values ('Ronit',1)
+insert into student values ('Meena',4)
+insert into student values ('shanmuka',3)
+insert into student values ('monika',Null)
+insert into student values ('monika',7)
+
+
+
+
+
